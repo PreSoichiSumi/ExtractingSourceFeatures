@@ -29,9 +29,6 @@ public class Main {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 
-		/**
-		 * �Ώۃt�@�C���̎w��
-		 */
 		//File file = new File(filePath);
 
 		File fileout =new File("output.arff");
@@ -182,7 +179,6 @@ public class Main {
 				/**
 				 * ソースコードのAST構築
 				 */
-				//System.out.println(file.getName()+"を処理するやで");
 
 				BufferedReader reader = new BufferedReader(new FileReader(file));
 				StringBuffer sb = new StringBuffer();
@@ -202,20 +198,7 @@ public class Main {
 				SourceVisitor visitor = new SourceVisitor(unit);
 				unit.accept(visitor);
 				ValNum = new int[85];//0-84 0は使わない
-				/*List<MethodData> methodList = visitor.getMethodList();
 
-
-
-				for (MethodData method : methodList) {
-					VectorData vector = method.getVector();
-
-					Map<Integer, Integer> vectorMap = vector.getVector();
-					for (int key = 1; key <= 84; key++) {
-						if (vectorMap.containsKey(key)) {  //キーを持つなら，加える
-							ValNum[key] += vectorMap.get(key);
-						}
-					}
-				}*/
 				filevec=visitor.vector.getVector();
 
 				for (int key = 1; key <= 84; key++) {
@@ -238,7 +221,7 @@ public class Main {
 
 				NumFile++;
 			}
-			
+
 				//System.out.println("list size is " + methodList.size());
 
 
